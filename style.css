@@ -1,0 +1,184 @@
+/* --- General Styling & Variables --- */
+:root {
+    --color-bg: #FDFBF5;
+    --color-dark: #333333;
+    --color-primary: #F3B63A;
+    --color-text: #555555;
+    --font-heading: 'Merriweather', serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { font-size: 2.5rem; }
+
+.subtitle {
+    color: #A0A0A0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.text-center { text-align: center; }
+
+/* --- Buttons --- */
+.btn {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.btn-dark { background-color: var(--color-dark); color: white; }
+.btn-dark:hover { background-color: #555; }
+.btn-primary { background-color: var(--color-primary); color: var(--color-dark); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.btn-light { background-color: white; color: var(--color-dark); border: 1px solid #eee; width: 100%; margin-top: 10px; }
+.btn-light:hover { background-color: #f7f7f7; }
+
+
+/* --- Navbar --- */
+.navbar {
+    padding: 20px 0;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--color-dark);
+}
+.navbar nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+/* --- Hero Section --- */
+.hero {
+    padding: 60px 0;
+}
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.hero-text {
+    flex: 1;
+}
+.hero-text p {
+    line-height: 1.6;
+}
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+.hero-image img {
+    max-width: 400px;
+    border-radius: 20px;
+}
+
+/* --- Services Section --- */
+.services-section {
+    padding: 80px 0;
+}
+.professionals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+.pro-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.pro-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.pro-card h3 {
+    margin: 10px 0 5px 0;
+}
+.pro-card p {
+    margin: 0;
+    color: #777;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--color-dark);
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+/* --- Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 12px;
+    position: relative;
+}
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#bookingForm input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

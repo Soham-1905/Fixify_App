@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixify - Connecting You to Top-Rated Service Providers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Fixify</a>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+                <button class="btn btn-dark">Book Now</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <p class="subtitle">Welcome to Fixify</p>
+                <h1>Connecting You to Top-Rated Service Providers</h1>
+                <p>Fixify is the premier platform for connecting homeowners and businesses with reliable, vetted service professionals.</p>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <img src="{{ url_for('static', filename='images/hero-image.jpg') }}" alt="Service Professional">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <p class="subtitle text-center">Trusted Partnerships</p>
+            <h2 class="text-center">Quality Assurance</h2>
+            <div class="professionals-grid">
+                {% for pro in professionals %}
+                <div class="pro-card">
+                    <img src="{{ url_for('static', filename=pro.image_url.replace('static/', '')) }}" alt="{{ pro.name }}">
+                    <h3>{{ pro.service }}</h3>
+                    <p>{{ pro.name }}</p>
+                    <button class="btn btn-light" onclick="openBookingModal('{{ pro.id }}', '{{ pro.name }}', '{{ pro.service }}')">Book Now</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Fixify, Inc. All rights reserved.</p>
+    </footer>
+
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeBookingModal()">&times;</span>
+            <h2>Book a Service</h2>
+            <p>Booking a <strong id="modalService"></strong> with <strong id="modalProName"></strong>.</p>
+            <form id="bookingForm">
+                <input type="hidden" id="modalProId" name="professional_id">
+                <input type="text" id="customerName" placeholder="Your Name" required>
+                <input type="email" id="customerEmail" placeholder="Your Email" required>
+                <button type="submit" class="btn btn-dark">Confirm Booking</button>
+            </form>
+            <p id="successMessage" style="display:none; color: green;"></p>
+        </div>
+    </div>
+
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+</body>
+</html>
